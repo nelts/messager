@@ -1,22 +1,22 @@
-# @nelts/context
+# @nelts/messager
 
-context for nelts
+messager for nelts
 
 # Usage
 
 ```bash
-npm i @nelts/context
+npm i @nelts/messager
 ```
 
 by ts:
 
 ```ts
-import Context from '@nelts/context';
-type BodyType = { [name: string]: any };
-type FileType = { [name: string]: any };
-const ctx = new Context<APP, BodyType, FileType>(app, req, res, {
-  cookie, params, logger,
-});
+import { Base, Master, Worker, Agent } from '@nelts/messager';
+const master = new Master<APP>(app);
+const worker = new Worker<APP>(app, mpid);
+const agent = new Agent<APP>(app, mpid);
+
+[which target].receiveMessage(message, socket);
 ```
 
 # License
