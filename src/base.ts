@@ -2,7 +2,7 @@ import { Component } from '@nelts/process';
 let id = 1;
 
 type ipcStatus = 0 | 1;
-type MessageSendOptions = string | number | { to?: string | number, socket?: any, timeout?: number };
+export type MessageSendOptions = string | number | { to?: string | number, socket?: any, timeout?: number };
 export type ReplyData = (code: ipcStatus, data: any) => void;
 
 export interface MessageReceiveDataOptions {

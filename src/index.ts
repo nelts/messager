@@ -1,4 +1,4 @@
-import Base, { ReplyData, MessageReceiveDataOptions, NewAgentMessageReceiveDataOptions } from './base';
+import Base, { ReplyData, MessageReceiveDataOptions, NewAgentMessageReceiveDataOptions, MessageSendOptions } from './base';
 import Master from './master';
 import Worker from './worker';
 import Agent from './agent';
@@ -9,6 +9,7 @@ export {
   Worker,
   Agent,
   ReplyData, 
+  MessageSendOptions,
   MessageReceiveDataOptions, 
   NewAgentMessageReceiveDataOptions,
 }

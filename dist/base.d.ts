@@ -1,6 +1,6 @@
 import { Component } from '@nelts/process';
 declare type ipcStatus = 0 | 1;
-declare type MessageSendOptions = string | number | {
+export declare type MessageSendOptions = string | number | {
     to?: string | number;
     socket?: any;
     timeout?: number;
