@@ -1,5 +1,6 @@
 import { Component } from '@nelts/process';
 let id = 1;
+const TIMEOUT = 20000;
 
 type ipcStatus = 0 | 1;
 export type MessageSendOptions = string | number | { to?: string | number, socket?: any, timeout?: number };
@@ -94,7 +95,7 @@ export default class Messager<APP extends Component> {
   asyncSend(method: string, data?: any, options?: MessageSendOptions): Promise<any> {
     return new Promise((resolve, reject) => {
       const _id = this.send(method, data, options);
-      const timeout = typeof options === 'object' ? options.timeout : 20000;
+      const timeout = typeof options === 'object' ? (options.timeout || TIMEOUT) : TIMEOUT;
       const timer = setTimeout(() => {
         if (this._stacks[_id]) {
           delete this._stacks[_id];

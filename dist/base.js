@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 let id = 1;
+const TIMEOUT = 20000;
 ;
 class Messager {
     constructor(app, mpid) {
@@ -62,7 +63,7 @@ class Messager {
     asyncSend(method, data, options) {
         return new Promise((resolve, reject) => {
             const _id = this.send(method, data, options);
-            const timeout = typeof options === 'object' ? options.timeout : 20000;
+            const timeout = typeof options === 'object' ? (options.timeout || TIMEOUT) : TIMEOUT;
             const timer = setTimeout(() => {
                 if (this._stacks[_id]) {
                     delete this._stacks[_id];
