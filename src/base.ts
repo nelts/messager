@@ -57,6 +57,10 @@ export default class Messager<APP extends Component> {
     }
   }
 
+  asyncHealth() {
+    return this.asyncSend('health');
+  }
+
   send(method: string, data?: any, options?: MessageSendOptions) {
     if (!options) options = this.mpid;
     if (typeof options !== 'object') {

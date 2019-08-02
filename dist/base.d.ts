@@ -37,6 +37,7 @@ export default class Messager<APP extends Component> {
     constructor(app: APP, mpid: number);
     onMessageFeedBack(message: MessageReceiveDataOptions, next: Function): void;
     parse(id: number, code: ipcStatus, data: any): void;
+    asyncHealth(): Promise<any>;
     send(method: string, data?: any, options?: MessageSendOptions): number;
     asyncSend(method: string, data?: any, options?: MessageSendOptions): Promise<any>;
     createReply(isMaster: boolean, message: MessageReceiveDataOptions, socket?: any): ReplyData;

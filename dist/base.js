@@ -24,6 +24,9 @@ class Messager {
             callback(data);
         }
     }
+    asyncHealth() {
+        return this.asyncSend('health');
+    }
     send(method, data, options) {
         if (!options)
             options = this.mpid;
