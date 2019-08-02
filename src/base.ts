@@ -43,7 +43,7 @@ export default class Messager<APP extends Component> {
   }
 
   onMessageFeedBack(message: MessageReceiveDataOptions, next: Function) {
-    if (message.to === process.pid && !message.method && message.code) {
+    if (message.to === process.pid && !message.method && message.code !== undefined && message.code !== null) {
       this.parse(message.id, message.code, message.data);
     } else {
       next();

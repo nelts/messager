@@ -10,7 +10,7 @@ class Messager {
         this.mpid = mpid;
     }
     onMessageFeedBack(message, next) {
-        if (message.to === process.pid && !message.method && message.code) {
+        if (message.to === process.pid && !message.method && message.code !== undefined && message.code !== null) {
             this.parse(message.id, message.code, message.data);
         }
         else {
