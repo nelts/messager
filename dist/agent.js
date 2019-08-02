@@ -32,11 +32,21 @@ class AgentMessager extends base_1.default {
             .catch(e => reply(1, e.message));
     }
     hybrid(message, reply, socket) {
-        let result;
-        const callback = (data) => result = data;
+        let result, shouldReply = false;
+        const callback = (data, replyValue) => {
+            result = data;
+            shouldReply = replyValue;
+        };
         this.app.emit('hybrid', message, callback, socket)
-            .then(() => reply(0, result))
-            .catch(e => reply(1, e.message));
+            .then(() => shouldReply && reply(0, result))
+            .catch(e => {
+            if (shouldReply) {
+                reply(1, e.message);
+            }
+            else {
+                this.app.processer.logger.error(e);
+            }
+        });
     }
 }
 exports.default = AgentMessager;

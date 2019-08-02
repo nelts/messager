@@ -32,10 +32,19 @@ export default class AgentMessager<APP extends Component> extends Base<APP> impl
   }
 
   private hybrid(message: MessageReceiveDataOptions, reply: ReplyData, socket?: any) {
-    let result: any;
-    const callback = (data: any) => result = data;
+    let result: any, shouldReply = false;
+    const callback = (data: any, replyValue: boolean) => {
+      result = data;
+      shouldReply = replyValue;
+    }
     this.app.emit('hybrid', message, callback, socket)
-      .then(() => reply(0, result))
-      .catch(e => reply(1, e.message));
+      .then(() => shouldReply && reply(0, result))
+      .catch(e => {
+        if (shouldReply) {
+          reply(1, e.message);
+        } else {
+          this.app.processer.logger.error(e);
+        }
+      });
   }
 }
