@@ -22,10 +22,10 @@
   },
   "homepage": "https://github.com/nelts/messager#readme",
   "devDependencies": {
-    "@types/node": "^12.6.8",
+    "@types/node": "^12.6.9",
     "typescript": "^3.5.3"
   },
   "dependencies": {
-    "@nelts/process": "^1.1.8"
+    "@nelts/process": "^1.1.18"
   }
 }
