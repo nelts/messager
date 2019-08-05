@@ -59,7 +59,7 @@ export default class Messager<APP extends Component> {
   }
 
   asyncHealth() {
-    return this.asyncSend('health');
+    return this.asyncSend('event:get:health');
   }
 
   send(method: string, data?: any, options?: MessageSendOptions) {

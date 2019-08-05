@@ -26,7 +26,7 @@ class Messager {
         }
     }
     asyncHealth() {
-        return this.asyncSend('health');
+        return this.asyncSend('event:get:health');
     }
     send(method, data, options) {
         if (!options)
