@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/nelts/messager#readme",
   "devDependencies": {
-    "@types/node": "^12.6.9",
+    "@types/node": "^12.7.2",
     "typescript": "^3.5.3"
   },
   "dependencies": {
