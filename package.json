@@ -26,6 +26,6 @@
     "typescript": "^3.6.2"
   },
   "dependencies": {
-    "@nelts/process": "^1.1.23"
+    "@nelts/process": "^1.1.26"
   }
 }
